@@ -8,9 +8,38 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "StateMachine",
+"class": "Enemy",
+"language": "GDScript",
+"path": "res://entities/enemies/Enemy.gd"
+}, {
+"base": "Node2D",
+"class": "Main",
+"language": "GDScript",
+"path": "res://scenes/main/Main.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "Projectile",
+"language": "GDScript",
+"path": "res://entities/projectiles/Projectile.gd"
+}, {
+"base": "Node",
+"class": "StateMachine",
+"language": "GDScript",
+"path": "res://scripts/StateMachine.gd"
+}, {
+"base": "Node2D",
+"class": "Weapon",
+"language": "GDScript",
+"path": "res://entities/weapons/Weapon.gd"
+} ]
 _global_script_class_icons={
-
+"Enemy": "",
+"Main": "",
+"Projectile": "",
+"StateMachine": "",
+"Weapon": ""
 }
 
 [application]
@@ -18,6 +47,27 @@ _global_script_class_icons={
 config/name="Derby Decks"
 config/icon="res://icon.png"
 
-[rendering]
+[autoload]
 
-environment/default_environment="res://default_env.tres"
+Global="*res://scripts/Global.gd"
+Events="*res://scripts/Events.gd"
+Sounds="*res://scripts/Sounds.gd"
+GameState="*res://scripts/GameState.gd"
+Helpers="*res://scripts/Helpers.gd"
+
+[display]
+
+window/size/width=360
+window/size/height=240
+window/size/test_width=720
+window/size/test_height=480
+window/stretch/mode="2d"
+window/stretch/aspect="keep"
+
+[input]
+
+debug_quit={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777217,"unicode":0,"echo":false,"script":null)
+ ]
+}
